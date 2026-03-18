@@ -158,29 +158,18 @@ Every agent action streams to the browser via WebSocket:
 
 ## Architecture
 
+> **[Open Architecture Diagram in draw.io](docs/architecture.drawio)** — Full system diagram with all 7 subsystems, data flows, and component relationships.
+
 ```
-┌──────────────────┐      WebSocket       ┌──────────────────────┐
-│                  │◄────────────────────►│                      │
-│   Next.js 15     │      REST API        │   FastAPI + Uvicorn  │
-│   React 19       │◄────────────────────►│                      │
-│   Tailwind CSS 4 │                      │   AgentRunner        │
-│                  │                      │   (thread → async)   │
-│   Dashboard UI   │                      │                      │
-└──────────────────┘                      └──────────┬───────────┘
-   localhost:3000                                     │
-                                                      │
-                                              ┌───────▼───────┐
-                                              │               │
-                                              │   agent.py    │
-                                              │   Claude API  │
-                                              │   + web_search│
-                                              │               │
-                                              └───────┬───────┘
-                                                      │
-                                              ┌───────▼───────┐
-                                              │  report_gen   │
-                                              │  XLSX / CSV   │
-                                              └───────────────┘
+USER                    DASHBOARD               SERVER                  AGENT LOOP              CLAUDE API
+─────                   ─────────               ──────                  ──────────              ──────────
+Company Name     →      Landing Page      →     POST /api/analyze  →    agent.py           ↔    Claude Sonnet 4
++ Pitch Deck            Dashboard               WebSocket ↔ events      ├─ Pinned Plan          └─ web_search
+                        Demo Mode               AgentRunner             ├─ Exit Gate                  │
+                        Report Viewer            (thread→async)         └─ Tools                      ▼
+                             ▲                                              │               8 Research Tasks
+                             │                                              ▼                     │
+                             └──── Download ◄──── XLSX / CSV / JSON ◄── report_generator ◄────────┘
 ```
 
 ### Key Design Decisions

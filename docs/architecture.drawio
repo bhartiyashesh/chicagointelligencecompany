@@ -1,0 +1,598 @@
+<mxfile host="app.diagrams.net" modified="2026-03-18T00:00:00.000Z" agent="draw.io" version="24.0.0" type="device">
+  <diagram id="cic-overview" name="System Overview">
+    <mxGraphModel dx="3200" dy="2000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="5000" pageHeight="2800" math="0" shadow="0" background="#0a0f1a">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============================================================ -->
+        <!-- TITLE & SUBTITLE -->
+        <!-- ============================================================ -->
+        <mxCell id="title" value="Chicago Intelligence Company" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#d4ff51;fontSize=28;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="1700" y="30" width="460" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Autonomous AI-Powered VC Due Diligence Platform — Full System Architecture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=14;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="1580" y="75" width="700" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- LEGEND (top right) -->
+        <!-- ============================================================ -->
+        <mxCell id="legend" value="LEGEND" style="group;rounded=1;arcSize=8;strokeColor=#2a3a4a;fillColor=#0f1520;fontColor=#94a3b8;fontSize=11;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=6;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="3500" y="30" width="280" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="" style="rounded=1;arcSize=50;fillColor=#d4ff51;strokeColor=none;fontColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="15" y="40" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1t" value="Accent / Core Agent Loop" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="40" y="36" width="220" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="" style="rounded=1;arcSize=50;fillColor=#8b5cf6;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="15" y="70" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2t" value="Anthropic API (External)" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="40" y="66" width="220" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="" style="rounded=1;arcSize=50;fillColor=#22c55e;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="15" y="100" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3t" value="Report Output" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="40" y="96" width="220" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="" style="rounded=1;arcSize=50;fillColor=#3b82f6;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="15" y="130" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4t" value="Data Storage / File System" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="40" y="126" width="220" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="" style="rounded=1;arcSize=50;fillColor=#f59e0b;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="15" y="160" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5t" value="Real-time Streaming" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="40" y="156" width="220" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="- - -" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#4a5568;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="12" y="186" width="30" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6t" value="Optional / Dashed = future" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="legend">
+          <mxGeometry x="40" y="186" width="220" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 1: USER INPUT -->
+        <!-- ============================================================ -->
+        <mxCell id="g_user" value="USER INPUT" style="group;rounded=1;arcSize=6;strokeColor=#d4ff51;fillColor=none;fontColor=#d4ff51;fontSize=13;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="340" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="u_company" value="Company Name" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=14;fontStyle=1;fontFamily=Helvetica;strokeWidth=2;" vertex="1" parent="g_user">
+          <mxGeometry x="30" y="50" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="u_pitch" value="Pitch Deck (PDF/TXT/MD)&#xa;Optional upload for cross-referencing" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_user">
+          <mxGeometry x="30" y="130" width="280" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="u_note1" value="Examples:&#xa;&quot;Stripe&quot;, &quot;Anthropic&quot;, &quot;SpaceX&quot;" style="text;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=10;fontStyle=2;fontFamily=Helvetica;" vertex="1" parent="g_user">
+          <mxGeometry x="30" y="210" width="280" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="u_cli" value="CLI: python agent.py &quot;Company&quot;&#xa;Web: http://localhost:3000" style="rounded=1;arcSize=15;fillColor=#111927;strokeColor=#2a3a4a;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_user">
+          <mxGeometry x="30" y="260" width="280" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 1: NEXT.JS DASHBOARD -->
+        <!-- ============================================================ -->
+        <mxCell id="g_dash" value="NEXT.JS 15 + REACT 19 + TAILWIND CSS 4&#xa;localhost:3000" style="group;rounded=1;arcSize=5;strokeColor=#2a3a4a;fillColor=none;fontColor=#e2e8f0;fontSize=13;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="480" y="160" width="460" height="580" as="geometry" />
+        </mxCell>
+        <!-- Landing Page -->
+        <mxCell id="d_landing" value="Landing Page  /" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=12;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="60" width="200" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="d_landing_detail" value="Hero + Features + How It Works + CTA" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_dash">
+          <mxGeometry x="25" y="105" width="200" height="18" as="geometry" />
+        </mxCell>
+        <!-- Dashboard -->
+        <mxCell id="d_dashboard" value="Analysis Dashboard  /dashboard" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=12;fontStyle=1;fontFamily=Helvetica;strokeWidth=2;" vertex="1" parent="g_dash">
+          <mxGeometry x="240" y="60" width="200" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="d_dash_detail" value="Real-time agent monitoring" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_dash">
+          <mxGeometry x="245" y="105" width="200" height="18" as="geometry" />
+        </mxCell>
+        <!-- Dashboard Components -->
+        <mxCell id="d_comp_label" value="COMPONENTS" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="130" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d_topbar" value="TopBar.tsx" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="155" width="130" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="d_activity" value="ActivityFeed.tsx" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="160" y="155" width="130" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="d_workspace" value="Workspace.tsx" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="300" y="155" width="130" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="d_report" value="ReportOverlay.tsx" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="195" width="130" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="d_pitch" value="PitchUpload.tsx" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="160" y="195" width="130" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="d_download" value="DownloadAll.tsx" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="300" y="195" width="130" height="32" as="geometry" />
+        </mxCell>
+        <!-- State Management -->
+        <mxCell id="d_state_label" value="STATE MANAGEMENT" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="240" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d_reducer" value="useReducer&#xa;(DashboardState)" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="265" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d_ws" value="useAgentWebSocket&#xa;(Real-time hook)" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#f59e0b;fontColor=#f59e0b;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_dash">
+          <mxGeometry x="170" y="265" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d_types" value="types.ts&#xa;(TypeScript interfaces)" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="320" y="265" width="120" height="40" as="geometry" />
+        </mxCell>
+        <!-- Demo Mode -->
+        <mxCell id="d_demo_label" value="DEMO MODE" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="320" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d_demo" value="demo.ts — Replays Indigo Systems analysis&#xa;37 pre-recorded events, no API key needed" style="rounded=1;arcSize=15;fillColor=#111927;strokeColor=#2a3a4a;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="345" width="420" height="45" as="geometry" />
+        </mxCell>
+        <!-- Download -->
+        <mxCell id="d_dl" value="Report Viewer + Download All" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#22c55e;fontColor=#22c55e;fontSize=12;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="420" width="420" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="d_dl_detail" value="XLSX + CSV + JSON + ZIP bundle" style="text;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_dash">
+          <mxGeometry x="20" y="465" width="420" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 1: FASTAPI SERVER -->
+        <!-- ============================================================ -->
+        <mxCell id="g_api" value="FASTAPI + UVICORN + WEBSOCKETS&#xa;localhost:8000" style="group;rounded=1;arcSize=5;strokeColor=#2a3a4a;fillColor=none;fontColor=#e2e8f0;fontSize=13;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="160" width="380" height="580" as="geometry" />
+        </mxCell>
+        <!-- REST Endpoints -->
+        <mxCell id="api_label" value="REST ENDPOINTS" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="50" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="api_analyze" value="POST /api/analyze" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="75" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_analyze_d" value="{ company, pitch_context? }" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Courier New;" vertex="1" parent="g_api">
+          <mxGeometry x="190" y="75" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_upload" value="POST /api/upload-pitch" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="120" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_upload_d" value="PDF/TXT/MD multipart" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Courier New;" vertex="1" parent="g_api">
+          <mxGeometry x="190" y="120" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_report" value="GET /api/report/{run_id}" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="165" width="160" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_report_d" value="Returns final_report.json" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Courier New;" vertex="1" parent="g_api">
+          <mxGeometry x="190" y="165" width="180" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_dl" value="GET /api/download/{id}/{fmt}" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="210" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_dl_d" value="xlsx / csv / json" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Courier New;" vertex="1" parent="g_api">
+          <mxGeometry x="230" y="210" width="140" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_dlall" value="GET /api/download-all/{id}" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#22c55e;fontColor=#22c55e;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="255" width="200" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_dlall_d" value="ZIP bundle" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Courier New;" vertex="1" parent="g_api">
+          <mxGeometry x="230" y="255" width="100" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="api_health" value="GET /health" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#94a3b8;fontSize=11;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="300" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="api_runs" value="GET /api/runs" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#94a3b8;fontSize=11;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_api">
+          <mxGeometry x="130" y="300" width="100" height="30" as="geometry" />
+        </mxCell>
+        <!-- WebSocket -->
+        <mxCell id="ws_label" value="WEBSOCKET STREAMING" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#f59e0b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="345" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="api_ws" value="WS /ws/{run_id}" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#f59e0b;fontColor=#f59e0b;fontSize=12;fontStyle=1;fontFamily=Helvetica;strokeWidth=2;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="370" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ws_events" value="Events: task_update, search, scratchpad_write,&#xa;plan_created, report_ready, token_usage, error" style="text;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Courier New;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="415" width="340" height="30" as="geometry" />
+        </mxCell>
+        <!-- AgentRunner -->
+        <mxCell id="runner_label" value="EXECUTION ENGINE" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="455" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="api_runner" value="AgentRunner (runner.py)&#xa;Thread &gt; Async Bridge" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=12;fontStyle=1;fontFamily=Helvetica;strokeWidth=2;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="480" width="340" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="runner_detail" value="Spawns agent in thread, bridges events to async WebSocket" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_api">
+          <mxGeometry x="20" y="535" width="340" height="18" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 2: AUTONOMOUS AGENT LOOP (center, large) -->
+        <!-- ============================================================ -->
+        <mxCell id="g_agent" value="AUTONOMOUS AGENT LOOP  —  agent.py (517 lines)" style="group;rounded=1;arcSize=4;strokeColor=#d4ff51;fillColor=none;fontColor=#d4ff51;fontSize=14;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;dashed=1;dashPattern=10 5;strokeWidth=2.5;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="160" width="700" height="850" as="geometry" />
+        </mxCell>
+        <!-- Main loop -->
+        <mxCell id="agent_loop" value="while stop_reason == &quot;tool_use&quot;:&#xa;    response = claude(system + pinned_plan + history)&#xa;    for block in response.content:&#xa;        if server_tool_use: skip (API handles)&#xa;        if tool_use: execute client tool&#xa;    # exit gate check" style="rounded=1;arcSize=10;fillColor=#111927;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=11;fontFamily=Courier New;fontStyle=1;strokeWidth=2;align=left;spacingLeft=12;spacingRight=12;spacingTop=8;spacingBottom=8;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="55" width="400" height="120" as="geometry" />
+        </mxCell>
+        <!-- System Prompt Injection -->
+        <mxCell id="sys_label" value="SYSTEM PROMPT STRUCTURE (re-injected every turn)" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="195" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sys1" value="[1] Base instructions + role" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="220" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sys2" value="[2] PINNED TODO LIST (position #2, never drifts)" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="255" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sys3" value="[3] Tool definitions (4 client + 1 server)" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="290" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sys4" value="[4] LinkedIn search instructions" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="325" width="300" height="30" as="geometry" />
+        </mxCell>
+        <!-- Three mechanisms -->
+        <mxCell id="mech_label" value="THREE RELIABILITY MECHANISMS" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="375" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="mech1" value="1. Pinned Todo List&#xa;Plan at system prompt position #2.&#xa;Re-injected EVERY API call.&#xa;Never buried in conversation history." style="rounded=1;arcSize=15;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;align=left;spacingLeft=10;spacingTop=6;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="400" width="200" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="mech2" value="2. Re-injected Hints&#xa;Every tool_result carries [NEXT]&#xa;instruction steering agent to&#xa;the next logical action." style="rounded=1;arcSize=15;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;align=left;spacingLeft=10;spacingTop=6;" vertex="1" parent="g_agent">
+          <mxGeometry x="250" y="400" width="200" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="mech3" value="3. Exit Gate&#xa;If agent stops with incomplete&#xa;tasks: inject &quot;you have N tasks&#xa;left&quot; and force loop (3 retries)." style="rounded=1;arcSize=15;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;align=left;spacingLeft=10;spacingTop=6;" vertex="1" parent="g_agent">
+          <mxGeometry x="460" y="400" width="200" height="85" as="geometry" />
+        </mxCell>
+        <!-- Client-side Tools -->
+        <mxCell id="tools_label" value="CLIENT-SIDE TOOLS (we execute, send tool_result back)" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="510" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tool1" value="todo_write&#xa;Create 5-8 task plan" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="535" width="145" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tool2" value="todo_update&#xa;Mark task complete" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_agent">
+          <mxGeometry x="195" y="535" width="145" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tool3" value="write_scratchpad&#xa;Save research to .md" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#3b82f6;fontColor=#3b82f6;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_agent">
+          <mxGeometry x="350" y="535" width="145" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="tool4" value="read_scratchpad&#xa;Recall previous research" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_agent">
+          <mxGeometry x="505" y="535" width="155" height="45" as="geometry" />
+        </mxCell>
+        <!-- Server-side tool note -->
+        <mxCell id="server_label" value="SERVER-SIDE TOOL (Anthropic API executes, results in response)" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#8b5cf6;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="600" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tool_search" value="web_search (server_tool_use)&#xa;API handles search, returns web_search_tool_result&#xa;We do NOT send tool_result back for these" style="rounded=1;arcSize=15;fillColor=#1a2332;strokeColor=#8b5cf6;fontColor=#8b5cf6;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=2;align=left;spacingLeft=10;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="625" width="400" height="60" as="geometry" />
+        </mxCell>
+        <!-- Stop reason handling -->
+        <mxCell id="stop_label" value="STOP REASON HANDLING" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="705" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="stop1" value="tool_use &gt; execute tools, continue loop" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="730" width="280" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="stop2" value="end_turn &gt; check exit gate, maybe continue" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#f59e0b;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="765" width="280" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="stop3" value="max_tokens &gt; inject &quot;continue&quot;, resume" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_agent">
+          <mxGeometry x="40" y="800" width="280" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 2: ANTHROPIC API -->
+        <!-- ============================================================ -->
+        <mxCell id="g_claude" value="ANTHROPIC API (External)" style="group;rounded=1;arcSize=5;strokeColor=#8b5cf6;fillColor=none;fontColor=#8b5cf6;fontSize=13;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;strokeWidth=2.5;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="160" width="300" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="claude_model" value="Claude Sonnet 4&#xa;claude-sonnet-4-20250514" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#8b5cf6;fontColor=#8b5cf6;fontSize=13;fontStyle=1;fontFamily=Helvetica;strokeWidth=2;" vertex="1" parent="g_claude">
+          <mxGeometry x="30" y="55" width="240" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="claude_search" value="web_search_20250305&#xa;Server-side tool execution" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#8b5cf6;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_claude">
+          <mxGeometry x="30" y="140" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="claude_cost" value="Cost per analysis: $0.50 - $2.00&#xa;Input: 50K-150K tokens&#xa;Output: 8K-60K tokens" style="rounded=1;arcSize=15;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;align=left;spacingLeft=10;" vertex="1" parent="g_claude">
+          <mxGeometry x="30" y="225" width="240" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 2: RESEARCH TASKS -->
+        <!-- ============================================================ -->
+        <mxCell id="g_research" value="8 RESEARCH TASKS (Sequential)" style="group;rounded=1;arcSize=5;strokeColor=#2a3a4a;fillColor=none;fontColor=#e2e8f0;fontSize=13;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2720" y="160" width="340" height="580" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" value="1  Company Overview &amp; Business Model" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="50" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="2  Leadership Team + LinkedIn Verification" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="95" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r2_note" value="Searches &quot;[Name] LinkedIn [Company]&quot; for each exec" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=2;fontFamily=Helvetica;" vertex="1" parent="g_research">
+          <mxGeometry x="25" y="130" width="290" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" value="3  Market Analysis (TAM / SAM / CAGR)" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="155" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" value="4  Product &amp; Competitive Positioning" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="205" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r5" value="5  Traction &amp; Performance Metrics" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="255" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" value="6  Competitive Landscape (3-5 competitors)" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="305" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r7" value="7  Financial Analysis &amp; Funding History" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="355" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" value="8  Risk Assessment &amp; Final Report" style="rounded=1;arcSize=25;fillColor=#1a2332;strokeColor=#2a3a4a;fontColor=#e2e8f0;fontSize=11;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="405" width="300" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="r_searches" value="10-20 web searches per analysis&#xa;Each task: 2-3 targeted searches" style="rounded=1;arcSize=15;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;align=left;spacingLeft=10;" vertex="1" parent="g_research">
+          <mxGeometry x="20" y="470" width="300" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 3: FILE SYSTEM / DATA STORES -->
+        <!-- ============================================================ -->
+        <mxCell id="g_files" value="FILE SYSTEM (Runtime Data)" style="group;rounded=1;arcSize=5;strokeColor=#3b82f6;fillColor=none;fontColor=#3b82f6;fontSize=13;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="600" width="740" height="420" as="geometry" />
+        </mxCell>
+        <!-- Scratchpad -->
+        <mxCell id="fs_scratch_label" value="scratchpad/" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#3b82f6;fontSize=11;fontStyle=1;fontFamily=Courier New;spacingLeft=4;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="45" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s1" value="company_overview.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="70" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s2" value="leadership_team.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="250" y="70" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s3" value="market_analysis.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="480" y="70" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s4" value="competitive_landscape.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="105" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s5" value="traction_metrics.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="250" y="105" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s6" value="financial_analysis.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="480" y="105" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s7" value="risk_assessment.md" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Courier New;strokeWidth=1;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="140" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_s8" value="final_report.json" style="rounded=1;arcSize=25;fillColor=#111927;strokeColor=#22c55e;fontColor=#22c55e;fontSize=10;fontStyle=1;fontFamily=Courier New;strokeWidth=1.5;" vertex="1" parent="g_files">
+          <mxGeometry x="250" y="140" width="220" height="28" as="geometry" />
+        </mxCell>
+        <!-- Reports -->
+        <mxCell id="fs_report_label" value="reports/" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#22c55e;fontSize=11;fontStyle=1;fontFamily=Courier New;spacingLeft=4;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="195" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_xlsx" value="Company_VC_Analysis.xlsx" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#22c55e;fontColor=#22c55e;fontSize=11;fontStyle=1;fontFamily=Courier New;strokeWidth=1.5;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="220" width="220" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_xlsx_d" value="Professional formatting: dark headers,&#xa;alternating rows, accent ratings" style="text;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_files">
+          <mxGeometry x="25" y="258" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_csv" value="Company_VC_Analysis.csv" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#22c55e;fontColor=#22c55e;fontSize=11;fontStyle=1;fontFamily=Courier New;strokeWidth=1.5;" vertex="1" parent="g_files">
+          <mxGeometry x="260" y="220" width="220" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_csv_d" value="Byte-for-byte matches&#xa;Cofounder.co format" style="text;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_files">
+          <mxGeometry x="265" y="258" width="220" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_json" value="Company_VC_Analysis.json" style="rounded=1;arcSize=20;fillColor=#1a2332;strokeColor=#22c55e;fontColor=#22c55e;fontSize=11;fontStyle=1;fontFamily=Courier New;strokeWidth=1.5;" vertex="1" parent="g_files">
+          <mxGeometry x="500" y="220" width="220" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_json_d" value="Structured data for&#xa;programmatic access" style="text;align=left;verticalAlign=top;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontFamily=Helvetica;" vertex="1" parent="g_files">
+          <mxGeometry x="505" y="258" width="220" height="28" as="geometry" />
+        </mxCell>
+        <!-- Report generator -->
+        <mxCell id="fs_rg_label" value="REPORT GENERATOR" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#64748b;fontSize=9;fontStyle=1;fontFamily=Helvetica;spacingLeft=4;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="305" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fs_rg" value="report_generator.py (367 lines)&#xa;10 sections: Executive Summary, Leadership, Market, Product, Traction, Competitive, Financial, Risk, Recommendation" style="rounded=1;arcSize=15;fillColor=#1a2332;strokeColor=#22c55e;fontColor=#e2e8f0;fontSize=10;fontFamily=Helvetica;strokeWidth=1.5;align=left;spacingLeft=10;spacingRight=10;" vertex="1" parent="g_files">
+          <mxGeometry x="20" y="330" width="700" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- RATING SCALE (bottom left) -->
+        <!-- ============================================================ -->
+        <mxCell id="g_rating" value="INVESTMENT RATING SCALE" style="group;rounded=1;arcSize=6;strokeColor=#2a3a4a;fillColor=#0f1520;fontColor=#e2e8f0;fontSize=12;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="40" y="620" width="340" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="rate1" value="STRONG BUY" style="rounded=1;arcSize=25;fillColor=#166534;strokeColor=#22c55e;fontColor=#22c55e;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_rating">
+          <mxGeometry x="20" y="45" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate1d" value="Exceptional opportunity" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="g_rating">
+          <mxGeometry x="170" y="45" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate2" value="BUY" style="rounded=1;arcSize=25;fillColor=#14532d;strokeColor=#4ade80;fontColor=#4ade80;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_rating">
+          <mxGeometry x="20" y="85" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate2d" value="Strong fundamentals" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="g_rating">
+          <mxGeometry x="170" y="85" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate3" value="LEAN BUY" style="rounded=1;arcSize=25;fillColor=#422006;strokeColor=#f59e0b;fontColor=#f59e0b;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_rating">
+          <mxGeometry x="20" y="125" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate3d" value="Promising with concerns" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="g_rating">
+          <mxGeometry x="170" y="125" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate4" value="PASS" style="rounded=1;arcSize=25;fillColor=#450a0a;strokeColor=#ef4444;fontColor=#ef4444;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_rating">
+          <mxGeometry x="20" y="165" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate4d" value="Risk/reward unfavorable" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="g_rating">
+          <mxGeometry x="170" y="165" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate5" value="NEEDS MORE DATA" style="rounded=1;arcSize=25;fillColor=#1e293b;strokeColor=#64748b;fontColor=#94a3b8;fontSize=11;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" vertex="1" parent="g_rating">
+          <mxGeometry x="20" y="205" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="rate5d" value="Insufficient public info" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;" vertex="1" parent="g_rating">
+          <mxGeometry x="170" y="205" width="160" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- FUTURE ROADMAP (bottom center) -->
+        <!-- ============================================================ -->
+        <mxCell id="g_future" value="FUTURE ROADMAP" style="group;rounded=1;arcSize=5;strokeColor=#2a3a4a;fillColor=#0f1520;fontColor=#94a3b8;fontSize=12;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;dashed=1;dashPattern=8 4;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="480" y="810" width="920" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="fut_near" value="NEAR-TERM" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#d4ff51;fontSize=9;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="g_future">
+          <mxGeometry x="20" y="40" width="100" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="fut1" value="People Data Labs API&#xa;$0.01-0.10 per record" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="20" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fut2" value="Document Upload&#xa;Unstructured.io OCR" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="195" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fut_med" value="MEDIUM-TERM" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#f59e0b;fontSize=9;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="g_future">
+          <mxGeometry x="20" y="115" width="100" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="fut3" value="SEC EDGAR XBRL&#xa;10-K/10-Q parsing" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="20" y="135" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fut4" value="Browser Use&#xa;+ Browserbase" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="170" y="135" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fut5" value="Firecrawl&#xa;27 pages/sec" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="300" y="135" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fut6" value="LangGraph&#xa;Parallel fan-out" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="430" y="135" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fut_long" value="LONG-TERM" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#ef4444;fontSize=9;fontStyle=1;fontFamily=Helvetica;" vertex="1" parent="g_future">
+          <mxGeometry x="20" y="190" width="100" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="fut7" value="VDR Integration&#xa;Intralinks/Datasite" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="20" y="210" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fut8" value="Multi-jurisdiction&#xa;CFIUS / EU AI Act" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="170" y="210" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fut9" value="Post-merger&#xa;Integration monitoring" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="320" y="210" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fut10" value="Human-in-the-loop&#xa;Review gates" style="rounded=1;arcSize=20;fillColor=#111927;strokeColor=#1e293b;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;strokeWidth=1;" vertex="1" parent="g_future">
+          <mxGeometry x="560" y="135" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- TECH STACK (bottom right of future) -->
+        <!-- ============================================================ -->
+        <mxCell id="g_tech" value="TECH STACK" style="group;rounded=1;arcSize=6;strokeColor=#2a3a4a;fillColor=#0f1520;fontColor=#e2e8f0;fontSize=12;fontStyle=1;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=8;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="40" y="960" width="340" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="tech1" value="AI: Claude Sonnet 4 (Anthropic API)" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#8b5cf6;fontSize=10;fontFamily=Helvetica;spacingLeft=10;" vertex="1" parent="g_tech">
+          <mxGeometry x="10" y="40" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tech2" value="Backend: Python, FastAPI, Uvicorn, WebSockets" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#d4ff51;fontSize=10;fontFamily=Helvetica;spacingLeft=10;" vertex="1" parent="g_tech">
+          <mxGeometry x="10" y="65" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tech3" value="Frontend: Next.js 15, React 19, TypeScript, Tailwind 4" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#3b82f6;fontSize=10;fontFamily=Helvetica;spacingLeft=10;" vertex="1" parent="g_tech">
+          <mxGeometry x="10" y="90" width="310" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="tech4" value="Reports: openpyxl (XLSX), CSV, JSON" style="text;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontColor=#22c55e;fontSize=10;fontFamily=Helvetica;spacingLeft=10;" vertex="1" parent="g_tech">
+          <mxGeometry x="10" y="115" width="310" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- KEY CONNECTIONS -->
+        <!-- ============================================================ -->
+
+        <!-- User → Landing Page -->
+        <mxCell id="c1" value="Enter company" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#4a5568;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="u_company" target="d_landing">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- User pitch → Upload API -->
+        <mxCell id="c2" value="Upload PDF" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#4a5568;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=1.5;dashed=1;" edge="1" parent="1" source="u_pitch" target="api_upload">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="358" />
+              <mxPoint x="430" y="600" />
+              <mxPoint x="1020" y="600" />
+              <mxPoint x="1020" y="298" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Landing → Dashboard -->
+        <mxCell id="c3" value="Launch Platform" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=2;" edge="1" parent="g_dash" source="d_landing" target="d_dashboard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dashboard → REST API -->
+        <mxCell id="c4" value="POST /api/analyze" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#4a5568;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="d_dashboard" target="api_analyze">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dashboard ↔ WebSocket -->
+        <mxCell id="c5" value="Real-time events" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#f59e0b;fontColor=#f59e0b;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;startArrow=blockThin;startFill=1;strokeWidth=2;" edge="1" parent="1" source="d_ws" target="api_ws">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- AgentRunner → Agent Loop -->
+        <mxCell id="c6" value="Spawn in thread" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#d4ff51;fontColor=#d4ff51;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=2;" edge="1" parent="1" source="api_runner" target="agent_loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Agent ↔ Claude API -->
+        <mxCell id="c7" value="Messages API" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeColor=#8b5cf6;fontColor=#8b5cf6;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;startArrow=blockThin;startFill=1;strokeWidth=2;" edge="1" parent="1" source="agent_loop" target="claude_model">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Claude → web_search -->
+        <mxCell id="c8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#8b5cf6;endArrow=blockThin;endFill=1;strokeWidth=1.5;" edge="1" parent="g_claude" source="claude_model" target="claude_search">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- web_search → Research Tasks -->
+        <mxCell id="c9" value="10-20 searches" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=1;exitY=0.5;entryX=0;entryY=0.3;strokeColor=#8b5cf6;fontColor=#94a3b8;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="claude_search" target="g_research">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Research → Scratchpad files -->
+        <mxCell id="c10" value="write_scratchpad" style="edgeStyle=orthogonalEdgeStyle;rounded=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeColor=#3b82f6;fontColor=#3b82f6;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="g_research" target="g_files">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Agent → Report Generator -->
+        <mxCell id="c11" value="All tasks complete" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#22c55e;fontColor=#22c55e;fontSize=10;fontStyle=1;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=2;" edge="1" parent="1" source="tool3" target="fs_rg">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1943" y="780" />
+              <mxPoint x="2280" y="780" />
+              <mxPoint x="2280" y="965" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Reports → Dashboard Download -->
+        <mxCell id="c12" value="Download XLSX / CSV / JSON / ZIP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#22c55e;fontColor=#22c55e;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#0a0f1a;endArrow=blockThin;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="fs_xlsx" target="d_dl">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2450" y="1100" />
+              <mxPoint x="420" y="1100" />
+              <mxPoint x="420" y="703" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
