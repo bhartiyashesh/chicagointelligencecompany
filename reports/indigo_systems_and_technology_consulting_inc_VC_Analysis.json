@@ -1,0 +1,162 @@
+{
+  "executive_summary": {
+    "company_name": "Indigo Systems & Technology Consulting Inc",
+    "product": "Identity and Access Management (IAM) consulting services and OpenConnect mobile IAM product",
+    "founded": "1997",
+    "funding_stage": "Bootstrap/Minimal External Funding",
+    "lead_investors": "Not disclosed (minimal funding of $150K total)"
+  },
+  "leadership_team": [
+    {
+      "position": "Director",
+      "name": "Rajeev Parekh",
+      "background": "Master's Degree in Engineering from Illinois Institute of Technology",
+      "linkedin": "Not disclosed",
+      "key_experience": "Primary director and business contact; decades of experience in Business Services, Management Consulting, and Custom Software & IT Services"
+    }
+  ],
+  "team_size": "25-50 employees (estimated range from multiple sources)",
+  "team_breakdown": "Technical consultants specializing in IAM, including 50+ ForgeRock specialists, Identity & Access Management Senior professionals, project managers, and administrative staff. Strong technical expertise but limited visible management depth.",
+  "market_analysis": [
+    {
+      "category": "Identity & Access Management Market",
+      "current_size": "$22-26 billion (2025)",
+      "projection": "$43-78 billion by 2030-2034",
+      "cagr": "10-16%",
+      "notes": "Strong growth driven by cybersecurity threats, regulatory compliance, cloud migration, and Zero Trust adoption"
+    },
+    {
+      "category": "IAM Services Segment",
+      "current_size": "Growing faster than solutions segment",
+      "projection": "Continued outperformance due to complexity of enterprise environments",
+      "cagr": "Above overall market growth",
+      "notes": "Organizations increasingly leveraging managed services and consulting for secure access governance"
+    },
+    {
+      "category": "North America IAM Market",
+      "current_size": "$9 billion (2025)",
+      "projection": "$24 billion by 2034",
+      "cagr": "12-13%",
+      "notes": "Dominant region with 37-40% global market share; strong regulatory compliance and enterprise IT infrastructure"
+    },
+    {
+      "category": "IT Consulting Services",
+      "current_size": "$78-112 billion (2025)",
+      "projection": "$127-210 billion by 2030",
+      "cagr": "4-13%",
+      "notes": "Broad market context with security consulting representing 35% of offerings and growing demand for specialized expertise"
+    }
+  ],
+  "product_positioning": {
+    "core_value_prop": "Boutique IAM consulting specializing in ForgeRock, Oracle, and UnboundID platforms with proprietary OpenConnect mobile IAM product",
+    "key_differentiators": "27-year track record, Small Disadvantage Business certification, deep vendor partnerships, government contracting capabilities, specialized IAM expertise",
+    "target_customers": "Financial services, telecommunications, media, education, and government institutions requiring enterprise IAM implementations",
+    "pricing_model": "Project-based consulting, technology integration services, product licensing, and managed services contracts"
+  },
+  "traction_metrics": [
+    {
+      "metric": "Annual Revenue",
+      "current_value": "$5.5 million (2025 estimate)",
+      "significance": "Healthy revenue per employee ratio indicating efficient operations and premium pricing"
+    },
+    {
+      "metric": "Operating History",
+      "current_value": "27 years (since 1997)",
+      "significance": "Demonstrates business model sustainability and client retention through multiple technology cycles"
+    },
+    {
+      "metric": "ForgeRock Partnership",
+      "current_value": "50+ specialized consultants, 10+ years experience, accredited delivery leader",
+      "significance": "Strong position in leading IAM vendor ecosystem with deep technical expertise"
+    },
+    {
+      "metric": "Government Certification",
+      "current_value": "Small Disadvantage Business status",
+      "significance": "Competitive advantage for government contracting providing stable revenue opportunities"
+    },
+    {
+      "metric": "Geographic Presence",
+      "current_value": "US (Illinois) and Canadian operations",
+      "significance": "Multi-jurisdictional presence enabling broader market reach and client service"
+    }
+  ],
+  "competitive_landscape": [
+    {
+      "competitor": "Deloitte",
+      "valuation_funding": "20% IT consulting market share",
+      "focus": "Full-service consulting with expanding IAM practice",
+      "strengths": "Massive scale, global reach, brand recognition, resources",
+      "weaknesses_vs_target": "Less specialized IAM focus, higher overhead, less agility"
+    },
+    {
+      "competitor": "iC Consult",
+      "valuation_funding": "800+ employees, global presence",
+      "focus": "Independent IAM consultancy and systems integrator",
+      "strengths": "Large scale, global operations, comprehensive IAM services",
+      "weaknesses_vs_target": "Less government access, no proprietary product, larger overhead"
+    },
+    {
+      "competitor": "Identity Fusion",
+      "valuation_funding": "Not disclosed (boutique competitor)",
+      "focus": "Vendor-agnostic IAM consulting with ForgeRock/Okta/Ping expertise",
+      "strengths": "Deep technical expertise, vendor-agnostic approach, established partnerships",
+      "weaknesses_vs_target": "No government certification, limited proprietary offerings"
+    },
+    {
+      "competitor": "ForgeRock/Ping Identity",
+      "valuation_funding": "$2.3B acquisition by Thoma Bravo",
+      "focus": "IAM technology vendor with expanding services capability",
+      "strengths": "Technology ownership, massive resources, broad partner ecosystem",
+      "weaknesses_vs_target": "Vendor bias, potential partner conflicts, less specialized consulting focus"
+    }
+  ],
+  "financial_analysis": {
+    "funding_raised": "$150K total funding (minimal external investment)",
+    "investors": "Not disclosed (likely bootstrap/founder funded)",
+    "revenue_model": "Professional services (~75%), technology solutions (~20%), managed services (~5%)",
+    "burn_rate": "Low burn rate due to profitable operations and minimal external funding",
+    "runway": "Self-sustaining operations with 27-year cash flow positive history"
+  },
+  "risk_assessment": [
+    {
+      "risk_category": "Key Person Dependency",
+      "level": "HIGH",
+      "description": "Heavy reliance on Rajeev Parekh as primary director with limited visible management depth",
+      "mitigation": "Expand leadership team and implement formal succession planning"
+    },
+    {
+      "risk_category": "Industry Consolidation",
+      "level": "HIGH",
+      "description": "Thoma Bravo's $12B acquisition of major IAM vendors disrupting partner ecosystem",
+      "mitigation": "Diversified vendor partnerships and proprietary OpenConnect product reduce single-vendor dependency"
+    },
+    {
+      "risk_category": "Talent Acquisition",
+      "level": "HIGH",
+      "description": "Shortage of qualified IAM consultants with competition from larger firms",
+      "mitigation": "Specialized expertise and boutique environment appeal to focused consultants"
+    },
+    {
+      "risk_category": "Scale Limitations",
+      "level": "MEDIUM",
+      "description": "25-50 employee size may limit ability to compete for large enterprise projects",
+      "mitigation": "Focus on specialized niche and government contracts where size is less critical"
+    },
+    {
+      "risk_category": "Technology Disruption",
+      "level": "MEDIUM-HIGH",
+      "description": "Rapid IAM technology evolution including AI-driven and passwordless solutions",
+      "mitigation": "Vendor partnerships provide access to latest technology developments"
+    }
+  ],
+  "investment_recommendation": {
+    "overall_rating": "HOLD - Moderate Interest",
+    "investment_thesis": "Indigo represents a stable, profitable niche consulting firm in the rapidly growing IAM market with strong vendor partnerships and government contracting capabilities. The company offers defensive characteristics with steady cash flows rather than high-growth venture potential.",
+    "key_strengths": "27-year operating history, specialized IAM expertise, government certification competitive advantage, established vendor partnerships, proprietary OpenConnect product, self-sustaining profitability, strong market position in growing sector",
+    "key_concerns": "Key person dependency on single director, limited scale for institutional investment, high talent acquisition risks, vulnerability to vendor consolidation, minimal external funding history suggesting conservative growth approach",
+    "valuation_assessment": "Estimated valuation range of $22-33M (4-6x revenue multiple) reflecting mature consulting firm with specialized expertise and stable cash flows",
+    "recommended_investment": "$2-5M for minority stake with active board involvement to address operational risks and accelerate growth",
+    "expected_timeline_to_exit": "5-7 years through strategic acquisition by larger consulting firm or IAM technology vendor",
+    "risk_adjusted_return": "15-25% IRR with moderate risk profile suitable for investors seeking steady returns in growing cybersecurity market"
+  }
+}

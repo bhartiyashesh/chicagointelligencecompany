@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@theme {
+  /* Cipher Digital-inspired palette */
+  --color-bg-primary: #0a0a0c;
+  --color-bg-elevated: #111114;
+  --color-bg-card: #161619;
+  --color-bg-hover: #1c1c20;
+  --color-bg-active: #222226;
+
+  /* Accent: Cipher's neon lime */
+  --color-accent: #d4ff51;
+  --color-accent-dim: #d4ff5120;
+  --color-accent-muted: #d4ff5140;
+  --color-accent-glow: #d4ff5115;
+
+  /* Semantic */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* Text */
+  --color-text-primary: #f0f0f2;
+  --color-text-secondary: #8a8a95;
+  --color-text-dim: #55555f;
+
+  /* Borders */
+  --color-border: #222228;
+  --color-border-subtle: #1a1a1f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scrollbar — thin & minimal */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-dim); }
+
+/* Selection — accent-branded */
+::selection {
+  background-color: var(--color-accent-muted);
+  color: var(--color-bg-primary);
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--color-accent-dim); }
+  50% { opacity: 0.7; box-shadow: 0 0 12px 2px var(--color-accent-dim); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-fade-in-up { animation: fade-in-up 0.4s ease-out; }
+.animate-fade-in { animation: fade-in 0.3s ease-out; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-slide-in { animation: slide-in-right 0.3s ease-out; }
+.animate-dot-pulse { animation: dot-pulse 1.5s ease-in-out infinite; }
+
+/* Dot grid background pattern */
+.dot-grid {
+  background-image: radial-gradient(circle, var(--color-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glow text effect */
+.text-glow {
+  text-shadow: 0 0 20px var(--color-accent-dim), 0 0 40px var(--color-accent-glow);
+}
+
+/* Glass card */
+.glass-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+}
+
+/* Accent line decoration */
+.accent-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-muted), transparent);
+}
