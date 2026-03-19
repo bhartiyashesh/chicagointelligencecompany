@@ -1,6 +1,7 @@
 "use client";
 
-import { useReducer, useCallback, useState, useEffect, useRef } from "react";
+import { useReducer, useCallback, useState, useEffect, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import type { DashboardState, AgentEvent, ActivityEntry, TaskInfo } from "@/lib/types";
 import { useAgentWebSocket } from "@/lib/websocket";
 import { playDemo } from "@/lib/demo";
@@ -267,9 +268,18 @@ function DotGrid() {
   );
 }
 
-// ─── Page Component ─────────────────────────────────────
+// ─── Page Component (wrapped with Suspense for useSearchParams) ──
 
 export default function Dashboard() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
+      <DashboardInner />
+    </Suspense>
+  );
+}
+
+function DashboardInner() {
+  const searchParams = useSearchParams();
   const [state, dispatch] = useReducer(reducer, initialState);
   const [showReport, setShowReport] = useState(false);
   const [inputCompany, setInputCompany] = useState("");
@@ -280,6 +290,7 @@ export default function Dashboard() {
   const [uploadingPitch, setUploadingPitch] = useState(false);
   const [isDemo, setIsDemo] = useState(false);
   const demoCleanupRef = useRef<(() => void) | null>(null);
+  const demoAutoStarted = useRef(false);
 
   useEffect(() => setMounted(true), []);
 
@@ -290,7 +301,7 @@ export default function Dashboard() {
 
   useAgentWebSocket(state.runId, handleEvent);
 
-  const startDemo = () => {
+  const startDemo = useCallback(() => {
     setIsDemo(true);
     dispatch({ type: "START_RUN", company: "Indigo Systems & Technology Consulting Inc", runId: "demo" });
     // Small delay to let the UI transition, then start the event replay
@@ -299,7 +310,15 @@ export default function Dashboard() {
         dispatch({ type: "EVENT", event });
       }, 2); // 2x speed
     }, 300);
-  };
+  }, []);
+
+  // Auto-start demo if ?demo=true is in URL
+  useEffect(() => {
+    if (searchParams.get("demo") === "true" && !demoAutoStarted.current && state.status === "idle") {
+      demoAutoStarted.current = true;
+      setTimeout(() => startDemo(), 500);
+    }
+  }, [searchParams, state.status, startDemo]);
 
   // Cleanup demo on unmount or reset
   useEffect(() => {
@@ -465,13 +484,23 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Demo button */}
-          <button
-            onClick={startDemo}
-            className="mt-6 text-[11px] font-medium tracking-[0.15em] uppercase text-text-dim hover:text-accent border-b border-dashed border-text-dim/30 hover:border-accent/40 pb-0.5 transition-all duration-200 cursor-pointer"
-          >
-            Watch Demo Analysis
-          </button>
+          {/* Demo + Sample run buttons */}
+          <div className="mt-6 flex flex-col items-center gap-3">
+            <button
+              onClick={startDemo}
+              className="text-[11px] font-medium tracking-[0.15em] uppercase text-text-dim hover:text-accent border-b border-dashed border-text-dim/30 hover:border-accent/40 pb-0.5 transition-all duration-200 cursor-pointer"
+            >
+              Watch Demo Analysis
+            </button>
+            <button
+              onClick={() => {
+                setInputCompany("Indigo Systems and Technology Consulting Inc");
+              }}
+              className="text-[10px] tracking-[0.12em] uppercase text-accent/60 hover:text-accent transition-colors cursor-pointer"
+            >
+              or try: Indigo Systems and Technology Consulting Inc
+            </button>
+          </div>
 
           {/* Bottom accent line */}
           <div className="absolute bottom-0 left-0 right-0 accent-line" />
