@@ -13,8 +13,8 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function ReportOverlay({ report, runId, onClose }: Props) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md animate-fade-in">
-      <div className="w-full max-w-5xl max-h-[92vh] bg-bg-primary rounded-xl border border-border shadow-[0_0_60px_rgba(212,255,81,0.05)] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-md animate-fade-in">
+      <div className="w-full max-w-5xl max-h-[92vh] bg-white rounded-xl border border-border shadow-[0_8px_60px_rgba(0,0,0,0.12)] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between px-8 py-5 border-b border-border shrink-0">
           <div>

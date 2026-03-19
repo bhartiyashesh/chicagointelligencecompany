@@ -272,7 +272,7 @@ function DotGrid() {
 
 export default function Dashboard() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-bg-primary" />}>
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
       <DashboardInner />
     </Suspense>
   );
@@ -288,6 +288,7 @@ function DashboardInner() {
   const [pitchFile, setPitchFile] = useState<File | null>(null);
   const [pitchContext, setPitchContext] = useState<string | null>(null);
   const [uploadingPitch, setUploadingPitch] = useState(false);
+  const [analysisType, setAnalysisType] = useState<"diligence" | "strategy">("diligence");
   const [isDemo, setIsDemo] = useState(false);
   const demoCleanupRef = useRef<(() => void) | null>(null);
   const demoAutoStarted = useRef(false);
@@ -311,6 +312,11 @@ function DashboardInner() {
       }, 2); // 2x speed
     }, 300);
   }, []);
+
+  // Read URL params for analysis type and demo
+  useEffect(() => {
+    if (searchParams.get("type") === "strategy") setAnalysisType("strategy");
+  }, [searchParams]);
 
   // Auto-start demo if ?demo=true is in URL
   useEffect(() => {
@@ -356,6 +362,7 @@ function DashboardInner() {
         body: JSON.stringify({
           company: inputCompany.trim(),
           pitch_context: pitchContext,
+          analysis_type: analysisType,
         }),
       });
       const data = await res.json();
@@ -396,8 +403,34 @@ function DashboardInner() {
           {/* Input area */}
           <div className="w-full max-w-lg">
             <div className="glass-card rounded-2xl p-8">
+              {/* Analysis type selector */}
+              <div className="flex items-center gap-1 p-1 bg-bg-secondary/50 rounded-lg mb-5">
+                <button
+                  onClick={() => setAnalysisType("diligence")}
+                  className={`flex-1 py-2.5 px-4 rounded-md text-[11px] font-semibold tracking-wide transition-all cursor-pointer ${
+                    analysisType === "diligence"
+                      ? "bg-accent text-black shadow-sm"
+                      : "text-text-dim hover:text-text-secondary"
+                  }`}
+                >
+                  Due Diligence
+                  <span className="ml-1.5 text-[9px] opacity-60">$40</span>
+                </button>
+                <button
+                  onClick={() => setAnalysisType("strategy")}
+                  className={`flex-1 py-2.5 px-4 rounded-md text-[11px] font-semibold tracking-wide transition-all cursor-pointer ${
+                    analysisType === "strategy"
+                      ? "bg-accent text-black shadow-sm"
+                      : "text-text-dim hover:text-text-secondary"
+                  }`}
+                >
+                  Strategy Analysis
+                  <span className="ml-1.5 text-[9px] opacity-60">$5</span>
+                </button>
+              </div>
+
               <label className="block text-[10px] font-medium tracking-[0.25em] uppercase text-text-dim mb-3">
-                Target Company
+                {analysisType === "diligence" ? "Target Company" : "Your Company"}
               </label>
               <div className="flex gap-3">
                 <input
@@ -405,14 +438,14 @@ function DashboardInner() {
                   value={inputCompany}
                   onChange={(e) => setInputCompany(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && startAnalysis()}
-                  placeholder="Stripe, Figma, Anduril..."
-                  className="flex-1 bg-bg-primary border border-border rounded-lg px-5 py-3.5 text-text-primary text-sm placeholder:text-text-dim/60 focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all duration-200"
+                  placeholder={analysisType === "diligence" ? "Stripe, Figma, Anduril..." : "Enter your company name..."}
+                  className="flex-1 bg-white border border-border rounded-lg px-5 py-3.5 text-text-primary text-sm placeholder:text-text-dim/60 focus:outline-none focus:border-accent/40 focus:ring-1 focus:ring-accent/20 transition-all duration-200"
                   autoFocus
                 />
                 <button
                   onClick={startAnalysis}
                   disabled={!inputCompany.trim() || isSubmitting}
-                  className="px-7 py-3.5 bg-accent text-bg-primary text-sm font-semibold rounded-lg hover:shadow-[0_0_24px_rgba(212,255,81,0.25)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
+                  className="px-7 py-3.5 bg-accent text-black text-sm font-semibold rounded-lg hover:shadow-[0_0_24px_rgba(212,255,81,0.35)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
                 >
                   {isSubmitting ? "Initiating..." : "Analyze"}
                 </button>
@@ -470,7 +503,7 @@ function DashboardInner() {
               <div className="mt-5 flex items-center gap-4 text-[11px] text-text-dim">
                 <div className="flex items-center gap-1.5">
                   <div className="w-1 h-1 rounded-full bg-accent/60" />
-                  3-10 min runtime
+                  {analysisType === "diligence" ? "3-10 min" : "5-15 min"} runtime
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-1 h-1 rounded-full bg-accent/60" />
@@ -478,7 +511,7 @@ function DashboardInner() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-1 h-1 rounded-full bg-accent/60" />
-                  10-section report
+                  {analysisType === "diligence" ? "10-section report" : "12-framework analysis"}
                 </div>
               </div>
             </div>
@@ -511,7 +544,7 @@ function DashboardInner() {
 
   // ─── Running/Complete State: Dashboard ────────────────
   return (
-    <div className="h-screen flex flex-col bg-bg-primary">
+    <div className="h-screen flex flex-col bg-white">
       <TopBar
         company={state.company}
         status={state.status}

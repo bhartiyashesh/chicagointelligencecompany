@@ -31,7 +31,7 @@ export default function TopBar({
   hasReport,
 }: Props) {
   return (
-    <header className="h-14 flex items-center justify-between px-6 bg-bg-primary shrink-0">
+    <header className="h-14 flex items-center justify-between px-6 bg-white shrink-0">
       {/* Left: Brand */}
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
@@ -66,7 +66,7 @@ export default function TopBar({
             </a>
             <button
               onClick={onViewReport}
-              className="px-4 py-1.5 rounded-lg bg-accent text-bg-primary text-[11px] font-semibold tracking-wider uppercase hover:shadow-[0_0_20px_rgba(212,255,81,0.3)] transition-all duration-200 cursor-pointer"
+              className="px-4 py-1.5 rounded-lg bg-accent text-black text-[11px] font-semibold tracking-wider uppercase hover:shadow-[0_0_20px_rgba(212,255,81,0.4)] transition-all duration-200 cursor-pointer"
             >
               View Report
             </button>
