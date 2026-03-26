@@ -25,9 +25,10 @@ os.makedirs(UPLOADS_DIR, exist_ok=True)
 
 app = FastAPI(title="CIC Agent Server")
 
+CORS_ORIGINS = os.getenv("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[o.strip() for o in CORS_ORIGINS.split(",")],
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -46,11 +47,13 @@ class AnalyzeRequest(BaseModel):
 async def start_analysis(req: AnalyzeRequest):
     # Check cache first (unless user uploaded a pitch deck or requested fresh)
     if not req.force_fresh and not req.pitch_context:
-        cached = get_cached_report(req.company)
+        # Supply chain reports use 48h TTL, diligence uses 24h
+        ttl = 172800 if req.analysis_type == "supply_chain" else 86400
+        cache_company = f"{req.analysis_type}:{req.company}" if req.analysis_type != "diligence" else req.company
+        cached = get_cached_report(cache_company, ttl=ttl)
         if cached:
-            # Return cached report immediately — no agent needed
             return {
-                "run_id": f"cached_{hash(req.company) & 0xFFFFFF:06x}",
+                "run_id": f"cached_{hash(cache_company) & 0xFFFFFF:06x}",
                 "company": req.company,
                 "cached": True,
                 "age_hours": cached["age_hours"],
@@ -59,7 +62,7 @@ async def start_analysis(req: AnalyzeRequest):
             }
 
     loop = asyncio.get_event_loop()
-    run_id = runner.start_run(req.company, loop, pitch_context=req.pitch_context)
+    run_id = runner.start_run(req.company, loop, pitch_context=req.pitch_context, analysis_type=req.analysis_type)
     return {"run_id": run_id, "company": req.company, "cached": False}
 
 

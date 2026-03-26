@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from agent import run as agent_run, generate_reports, AgentState
+from supply_chain_agent import run as sc_run, generate_reports as sc_generate_reports
 from server.cache import save_to_cache
 
 
@@ -31,7 +32,7 @@ class AgentRunner:
     def __init__(self):
         self._runs: dict[str, RunState] = {}
 
-    def start_run(self, company: str, loop: asyncio.AbstractEventLoop, pitch_context: str | None = None) -> str:
+    def start_run(self, company: str, loop: asyncio.AbstractEventLoop, pitch_context: str | None = None, analysis_type: str = "diligence") -> str:
         run_id = uuid.uuid4().hex[:12]
         run_state = RunState(run_id=run_id, company=company)
         self._runs[run_id] = run_state
@@ -52,9 +53,14 @@ class AgentRunner:
 
         def run_agent():
             try:
-                state = agent_run(company, max_turns=50, event_callback=event_callback, pitch_context=pitch_context)
-                run_state.agent_state = state
-                generate_reports(state, company, event_callback=event_callback)
+                if analysis_type == "supply_chain":
+                    state = sc_run(company, max_turns=60, event_callback=event_callback)
+                    run_state.agent_state = state
+                    sc_generate_reports(state, company, event_callback=event_callback)
+                else:
+                    state = agent_run(company, max_turns=50, event_callback=event_callback, pitch_context=pitch_context)
+                    run_state.agent_state = state
+                    generate_reports(state, company, event_callback=event_callback)
 
                 # Save to cache (only if no pitch context — pitch makes it unique)
                 if not pitch_context and run_state.report:

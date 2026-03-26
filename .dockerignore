@@ -1,0 +1,17 @@
+dashboard/
+.next/
+node_modules/
+.git/
+.env
+.env.local
+*.pyc
+__pycache__/
+.venv/
+venv/
+scratchpad/
+reports/
+cache/
+uploads/
+*.zip
+docs/
+.claude/

@@ -632,7 +632,7 @@ export default function LandingPage() {
           <div className="py-[clamp(4rem,10vh,6rem)] border-b border-neutral-200">
             <Reveal>
               <h2 className="text-[clamp(2.5rem,6vw,5rem)] font-light text-[#191818] tracking-[-0.06em] leading-[1]">
-                Two practices.<br />One platform.
+                Three practices.<br />One platform.
               </h2>
               <p className="text-[clamp(1rem,1.2vw,1.25rem)] text-neutral-400 max-w-xl leading-[1.6] mt-6 font-light">
                 Whether evaluating an acquisition target or pressure-testing your own strategic position.
@@ -727,6 +727,47 @@ export default function LandingPage() {
                 </Link>
                 <Link href="/dashboard?demo=true&type=strategy" className="px-6 py-2.5 text-neutral-400 text-[13px] font-normal rounded-lg hover:text-neutral-800 transition-colors duration-150 tracking-[-0.02em]">
                   View sample
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* ─── Practice 3: Supply Chain Intelligence ─── */}
+          <div className="py-[clamp(3rem,8vh,5rem)] border-b border-neutral-200">
+            <Reveal>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="text-[clamp(0.75rem,1vw,0.875rem)] text-neutral-400 font-light tracking-[-0.02em]">Practice III</span>
+                <span className="text-[11px] text-white bg-[#F97316] px-3 py-1 rounded-full font-medium tracking-[-0.01em]">$75 / report</span>
+              </div>
+              <h3 className="text-[clamp(2rem,4vw,3.5rem)] font-light text-[#191818] tracking-[-0.05em] leading-[1.05] mb-4">
+                Supply Chain Intelligence
+              </h3>
+              <p className="text-[clamp(0.9rem,1.1vw,1.1rem)] text-neutral-400 max-w-lg leading-[1.6] font-light">
+                Cross-referencing global logistics chains with real-time financial sentiment analysis. Supplier mapping, geographic risk, competitive displacement detection.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10">
+              {[
+                "Supplier Mapping", "Geographic Risk", "Vulnerability Detection", "Logistics Analysis", "Trade & Tariff Risk",
+                "Commodity Sensitivity", "Displacement Signals", "Financial Sentiment", "Disruption Monitoring", "Scenario Modeling",
+              ].map((t, i) => (
+                <Reveal key={t} delay={i * 40}>
+                  <div className="group cursor-default">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#F97316] mb-3 group-hover:scale-[2.5] transition-transform duration-300" />
+                    <h4 className="text-[14px] text-[#191818] font-normal tracking-[-0.02em] mb-1">{t}</h4>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={200}>
+              <div className="mt-10 flex items-center gap-3">
+                <Link href="/dashboard/supply-chain" className="px-6 py-2.5 bg-neutral-800 text-white text-[13px] font-normal rounded-lg hover:bg-neutral-700 transition-colors duration-150 tracking-[-0.02em]">
+                  Run SC Intelligence
+                </Link>
+                <Link href="/dashboard/supply-chain?demo=true" className="px-6 py-2.5 text-neutral-400 text-[13px] font-normal rounded-lg hover:text-neutral-800 transition-colors duration-150 tracking-[-0.02em]">
+                  Watch demo
                 </Link>
               </div>
             </Reveal>
@@ -855,7 +896,7 @@ export default function LandingPage() {
             <div className="marquee-track inline-flex">
               {[...Array(2)].map((_, copy) => (
                 <span key={copy} className="inline-flex items-center">
-                  {["Due Diligence", "Market Sizing", "Leadership Audit", "Risk Matrix", "Strategy Analysis", "Competitive Mapping", "Financial Assessment", "GTM Playbook"].map((text, i) => (
+                  {["Due Diligence", "Market Sizing", "Leadership Audit", "Risk Matrix", "Strategy Analysis", "Supply Chain", "Competitive Mapping", "Financial Assessment"].map((text, i) => (
                     <span key={`${copy}-${i}`} className="inline-flex items-center">
                       <span className="text-[clamp(3rem,8vw,7rem)] font-light text-white/[0.07] tracking-[-0.05em] leading-none hover:text-white/20 transition-colors duration-500 cursor-default px-2">
                         {text}
@@ -873,7 +914,7 @@ export default function LandingPage() {
             <div className="marquee-track inline-flex">
               {[...Array(2)].map((_, copy) => (
                 <span key={copy} className="inline-flex items-center">
-                  {["Due Diligence", "Market Sizing", "Leadership Audit", "Risk Matrix", "Strategy Analysis", "Competitive Mapping", "Financial Assessment", "GTM Playbook"].map((text, i) => (
+                  {["Due Diligence", "Market Sizing", "Leadership Audit", "Risk Matrix", "Strategy Analysis", "Supply Chain", "Competitive Mapping", "Financial Assessment"].map((text, i) => (
                     <span key={`r-${copy}-${i}`} className="inline-flex items-center">
                       <span className="text-[clamp(3rem,8vw,7rem)] font-light text-white/[0.04] tracking-[-0.05em] leading-none px-2">
                         {text}
@@ -896,6 +937,7 @@ export default function LandingPage() {
               <ul className="space-y-3">
                 <li><Link href="/dashboard" className="text-[13px] text-white/40 font-light hover:text-[#F97316] transition-colors duration-150">Investment Due Diligence</Link></li>
                 <li><Link href="/dashboard?type=strategy" className="text-[13px] text-white/40 font-light hover:text-[#F97316] transition-colors duration-150">Business Strategy</Link></li>
+                <li><Link href="/dashboard/supply-chain" className="text-[13px] text-white/40 font-light hover:text-[#F97316] transition-colors duration-150">Supply Chain Intelligence</Link></li>
               </ul>
             </div>
             {/* Analysis */}

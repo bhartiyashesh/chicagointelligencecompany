@@ -1,7 +1,9 @@
 node_modules/
 .next/
+dashboard/out/
 .env
 .env.local
+dashboard/.env.production
 __pycache__/
 *.pyc
 .DS_Store
