@@ -12,6 +12,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from agent import run as agent_run, generate_reports, AgentState
+from server.cache import save_to_cache
 
 
 @dataclass
@@ -54,6 +55,18 @@ class AgentRunner:
                 state = agent_run(company, max_turns=50, event_callback=event_callback, pitch_context=pitch_context)
                 run_state.agent_state = state
                 generate_reports(state, company, event_callback=event_callback)
+
+                # Save to cache (only if no pitch context — pitch makes it unique)
+                if not pitch_context and run_state.report:
+                    try:
+                        save_to_cache(
+                            company=company,
+                            report=run_state.report,
+                            scratchpad=state.scratchpad if state else {},
+                            report_paths=run_state.report_paths,
+                        )
+                    except Exception:
+                        pass  # Cache failure shouldn't break the run
             except Exception as e:
                 try:
                     loop.call_soon_threadsafe(

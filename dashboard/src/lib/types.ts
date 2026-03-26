@@ -63,6 +63,13 @@ export interface DashboardState {
 
 // ─── Report structure ───────────────────────────────────
 
+export interface ReportSource {
+  url: string;
+  title: string;
+  section: string;
+  accessed?: string;
+}
+
 export interface ReportData {
   executive_summary?: Record<string, string>;
   leadership_team?: Array<Record<string, string>>;
@@ -75,4 +82,5 @@ export interface ReportData {
   financial_analysis?: Record<string, string>;
   risk_assessment?: Array<Record<string, string>>;
   investment_recommendation?: Record<string, string>;
+  sources?: ReportSource[];
 }

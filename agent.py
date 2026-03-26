@@ -335,8 +335,22 @@ YOUR WORKFLOW:
   "competitive_landscape": [{{ "competitor": "", "valuation_funding": "", "focus": "", "strengths": "", "weaknesses_vs_target": "" }}],
   "financial_analysis": {{ "funding_raised": "", "investors": "", "revenue_model": "", "burn_rate": "", "runway": "" }},
   "risk_assessment": [{{ "risk_category": "", "level": "", "description": "", "mitigation": "" }}],
-  "investment_recommendation": {{ "overall_rating": "", "sentiment": "", "investment_thesis": "", "key_strengths": "", "key_concerns": "", "valuation_assessment": "", "recommended_investment": "", "expected_timeline_to_exit": "", "risk_adjusted_return": "" }}
+  "investment_recommendation": {{ "overall_rating": "", "sentiment": "", "investment_thesis": "", "key_strengths": "", "key_concerns": "", "valuation_assessment": "", "recommended_investment": "", "expected_timeline_to_exit": "", "risk_adjusted_return": "" }},
+  "sources": [{{ "url": "", "title": "", "section": "" }}]
 }}
+
+IMPORTANT — INLINE CITATIONS & SOURCES:
+As you research, number your sources starting from [1]. In the report text values,
+embed citation markers like [1], [2], [3] next to specific claims they support.
+Example: "Revenue estimated at $50M ARR [3] with 40% YoY growth [3][7]"
+
+The "sources" array MUST be ordered by number. Each source has:
+- url: the actual URL
+- title: page title or short description
+- section: which report section it primarily supports (e.g. "Market Analysis")
+
+Every factual claim should have at least one citation. If a claim cannot be
+verified, write "(unverified)" instead of a citation number.
 
 Save the final report as write_scratchpad(filename="final_report.json", content=<the JSON>).
 

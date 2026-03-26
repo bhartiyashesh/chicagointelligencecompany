@@ -18,6 +18,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
 from .runner import AgentRunner
+from .cache import get_cached_report, save_to_cache, list_cached_reports, clear_expired
 
 UPLOADS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "uploads")
 os.makedirs(UPLOADS_DIR, exist_ok=True)
@@ -37,13 +38,29 @@ runner = AgentRunner()
 class AnalyzeRequest(BaseModel):
     company: str
     pitch_context: str | None = None
+    analysis_type: str = "diligence"
+    force_fresh: bool = False  # Skip cache if true
 
 
 @app.post("/api/analyze")
 async def start_analysis(req: AnalyzeRequest):
+    # Check cache first (unless user uploaded a pitch deck or requested fresh)
+    if not req.force_fresh and not req.pitch_context:
+        cached = get_cached_report(req.company)
+        if cached:
+            # Return cached report immediately — no agent needed
+            return {
+                "run_id": f"cached_{hash(req.company) & 0xFFFFFF:06x}",
+                "company": req.company,
+                "cached": True,
+                "age_hours": cached["age_hours"],
+                "report": cached["report"],
+                "report_paths": cached.get("report_paths", {}),
+            }
+
     loop = asyncio.get_event_loop()
     run_id = runner.start_run(req.company, loop, pitch_context=req.pitch_context)
-    return {"run_id": run_id, "company": req.company}
+    return {"run_id": run_id, "company": req.company, "cached": False}
 
 
 @app.post("/api/upload-pitch")
@@ -193,6 +210,19 @@ async def download_all(run_id: str):
 @app.get("/api/runs")
 async def list_runs():
     return runner.list_runs()
+
+
+@app.get("/api/cache")
+async def list_cache():
+    """List all cached reports."""
+    return list_cached_reports()
+
+
+@app.post("/api/cache/clear-expired")
+async def clear_cache():
+    """Remove expired cache entries."""
+    removed = clear_expired()
+    return {"removed": removed}
 
 
 @app.get("/health")

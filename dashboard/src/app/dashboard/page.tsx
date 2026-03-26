@@ -2,6 +2,7 @@
 
 import { useReducer, useCallback, useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import type { DashboardState, AgentEvent, ActivityEntry, TaskInfo } from "@/lib/types";
 import { useAgentWebSocket } from "@/lib/websocket";
 import { playDemo } from "@/lib/demo";
@@ -318,13 +319,13 @@ function DashboardInner() {
     if (searchParams.get("type") === "strategy") setAnalysisType("strategy");
   }, [searchParams]);
 
-  // Auto-start demo if ?demo=true is in URL
+  // If ?demo=true, pre-fill company name but let user click "Start"
   useEffect(() => {
     if (searchParams.get("demo") === "true" && !demoAutoStarted.current && state.status === "idle") {
       demoAutoStarted.current = true;
-      setTimeout(() => startDemo(), 500);
+      setInputCompany("Indigo Systems and Technology Consulting Inc");
     }
-  }, [searchParams, state.status, startDemo]);
+  }, [searchParams, state.status]);
 
   // Cleanup demo on unmount or reset
   useEffect(() => {
@@ -366,7 +367,22 @@ function DashboardInner() {
         }),
       });
       const data = await res.json();
-      dispatch({ type: "START_RUN", company: inputCompany.trim(), runId: data.run_id });
+
+      if (data.cached && data.report) {
+        // Cached report — skip the agent, go straight to complete
+        dispatch({ type: "START_RUN", company: inputCompany.trim(), runId: data.run_id });
+        dispatch({
+          type: "EVENT",
+          event: {
+            type: "report_ready",
+            report: data.report,
+            cached: true,
+            age_hours: data.age_hours,
+          },
+        });
+      } else {
+        dispatch({ type: "START_RUN", company: inputCompany.trim(), runId: data.run_id });
+      }
     } catch (err) {
       dispatch({ type: "EVENT", event: { type: "api_error", error: `Connection failed: ${err}`, fatal: true } });
     } finally {
@@ -377,39 +393,36 @@ function DashboardInner() {
   // ─── Idle State: Landing ──────────────────────────────
   if (state.status === "idle") {
     return (
-      <div className="min-h-screen relative">
+      <div className="min-h-screen relative bg-[#f5f5f0]">
         <DotGrid />
 
         <div className={`relative z-10 min-h-screen flex flex-col items-center justify-center px-6 transition-opacity duration-700 ${mounted ? "opacity-100" : "opacity-0"}`}>
-          {/* Brand mark */}
-          <div className="mb-12 text-center">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-accent animate-dot-pulse" />
-              <span className="text-[11px] font-medium tracking-[0.3em] uppercase text-text-secondary">
-                Intelligence Platform
-              </span>
-              <div className="w-2 h-2 rounded-full bg-accent animate-dot-pulse" />
-            </div>
+          {/* / cic brand mark — links back to landing */}
+          <div className="mb-10 text-center">
+            <Link href="/" className="inline-flex items-center gap-2 mb-6 hover:opacity-70 transition-opacity">
+              <span className="text-[clamp(32px,5vw,42px)] font-extralight text-[#F97316] leading-none -mt-1">/</span>
+              <span className="text-[clamp(18px,3vw,24px)] font-black tracking-[-0.02em] text-text-primary">cic</span>
+            </Link>
 
-            <h1 className="text-5xl sm:text-6xl font-light tracking-tight text-text-primary mb-2">
+            <h1 className="text-3xl sm:text-5xl font-light tracking-tight text-text-primary mb-2">
               Chicago
               <span className="text-accent font-normal"> Intelligence</span>
             </h1>
-            <p className="text-lg text-text-dim font-light tracking-wide">
+            <p className="text-base sm:text-lg text-text-dim font-light tracking-wide">
               Autonomous VC analysis and M&A due diligence
             </p>
           </div>
 
           {/* Input area */}
-          <div className="w-full max-w-lg">
-            <div className="glass-card rounded-2xl p-8">
+          <div className="w-full max-w-lg px-2">
+            <div className="glass-card rounded-2xl p-5 sm:p-8">
               {/* Analysis type selector */}
               <div className="flex items-center gap-1 p-1 bg-bg-secondary/50 rounded-lg mb-5">
                 <button
                   onClick={() => setAnalysisType("diligence")}
                   className={`flex-1 py-2.5 px-4 rounded-md text-[11px] font-semibold tracking-wide transition-all cursor-pointer ${
                     analysisType === "diligence"
-                      ? "bg-accent text-black shadow-sm"
+                      ? "bg-accent text-white shadow-sm"
                       : "text-text-dim hover:text-text-secondary"
                   }`}
                 >
@@ -420,7 +433,7 @@ function DashboardInner() {
                   onClick={() => setAnalysisType("strategy")}
                   className={`flex-1 py-2.5 px-4 rounded-md text-[11px] font-semibold tracking-wide transition-all cursor-pointer ${
                     analysisType === "strategy"
-                      ? "bg-accent text-black shadow-sm"
+                      ? "bg-accent text-white shadow-sm"
                       : "text-text-dim hover:text-text-secondary"
                   }`}
                 >
@@ -445,7 +458,7 @@ function DashboardInner() {
                 <button
                   onClick={startAnalysis}
                   disabled={!inputCompany.trim() || isSubmitting}
-                  className="px-7 py-3.5 bg-accent text-black text-sm font-semibold rounded-lg hover:shadow-[0_0_24px_rgba(212,255,81,0.35)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
+                  className="px-7 py-3.5 bg-accent text-white text-sm font-semibold rounded-lg hover:shadow-[0_0_24px_rgba(37,99,235,0.35)] disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-200 cursor-pointer"
                 >
                   {isSubmitting ? "Initiating..." : "Analyze"}
                 </button>
@@ -544,7 +557,7 @@ function DashboardInner() {
 
   // ─── Running/Complete State: Dashboard ────────────────
   return (
-    <div className="h-screen flex flex-col bg-white">
+    <div className="h-screen flex flex-col bg-[#f5f5f0]">
       <TopBar
         company={state.company}
         status={state.status}

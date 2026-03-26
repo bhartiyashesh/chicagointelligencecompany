@@ -10,10 +10,10 @@
   --color-bg-active: #e5e5ea;
 
   /* Accent: lime stays — it pops on white */
-  --color-accent: #d4ff51;
-  --color-accent-dim: #d4ff5130;
-  --color-accent-muted: #d4ff5150;
-  --color-accent-glow: #d4ff5120;
+  --color-accent: #F97316;
+  --color-accent-dim: #F9731630;
+  --color-accent-muted: #F9731650;
+  --color-accent-glow: #F9731620;
 
   /* Semantic */
   --color-success: #22c55e;
@@ -52,7 +52,7 @@ body {
 
 /* Selection */
 ::selection {
-  background-color: #d4ff51;
+  background-color: #F97316;
   color: #0a0a0c;
 }
 

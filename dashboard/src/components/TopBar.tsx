@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import StatusBadge from "./StatusBadge";
 import StatsRow from "./StatsRow";
 
@@ -31,15 +32,13 @@ export default function TopBar({
   hasReport,
 }: Props) {
   return (
-    <header className="h-14 flex items-center justify-between px-6 bg-white shrink-0">
-      {/* Left: Brand */}
+    <header className="h-14 flex items-center justify-between px-4 sm:px-6 bg-white/80 backdrop-blur-sm border-b border-neutral-100 shrink-0">
+      {/* Left: / cic brand — links back to landing */}
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-1.5 h-4 bg-accent rounded-full" />
-          <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-text-secondary">
-            CIC
-          </span>
-        </div>
+        <Link href="/" className="flex items-center gap-1 hover:opacity-70 transition-opacity">
+          <span className="text-[18px] font-extralight text-[#F97316] leading-none -mt-0.5">/</span>
+          <span className="text-[12px] font-black tracking-[-0.02em] text-text-primary">cic</span>
+        </Link>
         <div className="w-px h-4 bg-border" />
         <h1 className="text-sm font-light text-text-primary tracking-wide">
           <span className="text-accent font-medium">{company}</span>
